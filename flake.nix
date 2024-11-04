@@ -16,7 +16,6 @@
 
   outputs =
     {
-      nixpkgs,
       nixvim,
       flake-parts,
       pre-commit-hooks,
@@ -35,7 +34,6 @@
           system,
           pkgs,
           self',
-          lib,
           ...
         }:
         let
@@ -51,9 +49,12 @@
               src = ./.;
               hooks = {
                 statix.enable = true;
-                nixfmt = {
+                nixfmt-rfc-style.enable = true;
+                deadnix = {
                   enable = true;
-                  package = pkgs.nixfmt-rfc-style;
+                  settings = {
+                    edit = true;
+                  };
                 };
               };
             };

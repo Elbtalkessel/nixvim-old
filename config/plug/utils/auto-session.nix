@@ -1,5 +1,5 @@
 {
-  plugins.which-key = {
+  plugins.auto-session = {
     enable = false;
   };
 }

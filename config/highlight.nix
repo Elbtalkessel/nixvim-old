@@ -5,11 +5,39 @@ in
 {
   config = lib.mkIf config.colorschemes.base16.enable {
     highlight = with colors; {
+
+      # Mini tabline
+      MiniTablineCurrent = {
+        bg = "none";
+        fg = base05;
+      };
+      MiniTablineVisible = {
+        bg = "none";
+        fg = base03;
+      };
+      MiniTablineHidden = {
+        bg = "none";
+        fg = base03;
+      };
+      MiniTablineModifiedCurrent = {
+        bg = "none";
+        fg = base0A;
+      };
+      MiniTablineModifiedVisible = {
+        bg = "none";
+        fg = base0B;
+      };
+      MiniTablineModifiedHidden = {
+        bg = "none";
+        fg = base0B;
+      };
+      # Mini Notify
       MiniNotifyNormal = {
         bg = base00;
       };
       MiniNotifyBorder = {
         bg = base00;
+        fg = base00;
       };
 
       CursorLine = {
@@ -21,16 +49,12 @@ in
         bg = "none";
       };
 
-      AlphaHeader = {
-        fg = base0E;
-        bg = "none";
-      };
-
       StatusNormal = {
         bg = "none";
         fg = "none";
       };
 
+      # Telescope
       TelescopePromptBorder = {
         fg = base01;
         bg = base01;
@@ -49,6 +73,7 @@ in
         bg = base01;
       };
 
+      # Popup menu
       Pmenu = {
         fg = "none";
         bg = base01;
@@ -66,6 +91,7 @@ in
         bg = base02;
       };
 
+      # Completion
       CmpItemAbbrMatch = {
         fg = base05;
         bg = "none";
@@ -95,20 +121,13 @@ in
         fg = base01;
         bg = "none";
       };
-      FloatBorder = {
-        fg = base01;
-        bg = base01;
-      };
-      NormalFloat = {
-        fg = "none";
-        bg = base01;
-      };
 
       LineNr = {
         fg = base03;
         bg = "none";
       };
 
+      # Noice
       NoiceCmdlinePopup = {
         fg = base04;
         bg = base01;
@@ -122,6 +141,7 @@ in
         bg = base01;
       };
 
+      # Treesitter
       TSAttribute = {
         fg = base0D;
       };

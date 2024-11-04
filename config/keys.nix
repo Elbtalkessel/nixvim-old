@@ -5,20 +5,36 @@
     # General maps
     {
       mode = "n";
+      key = "<leader>/";
+      action = "<cmd>nohl<CR>";
+      options = {
+        desc = "Clear search";
+      };
+    }
+    {
+      mode = "n";
       key = "<leader>f";
       action = "+find/file";
+      options = {
+        desc = "+file/file";
+      };
     }
-
     {
       mode = "n";
       key = "<leader>s";
       action = "+search";
+      options = {
+        desc = "+search";
+      };
     }
 
     {
       mode = "n";
       key = "<leader>q";
       action = "+quit/session";
+      options = {
+        desc = "+quit/session";
+      };
     }
 
     {
@@ -28,33 +44,36 @@
       ];
       key = "<leader>g";
       action = "+git";
+      options = {
+        desc = "+git";
+      };
     }
 
     {
       mode = "n";
       key = "<leader>u";
       action = "+ui";
+      options = {
+        desc = "+ui";
+      };
     }
 
     {
       mode = "n";
       key = "<leader>w";
       action = "+windows";
+      options = {
+        desc = "+windows";
+      };
     }
 
     {
       mode = "n";
       key = "<leader><Tab>";
       action = "+tab";
-    }
-
-    {
-      mode = [
-        "n"
-        "v"
-      ];
-      key = "<leader>d";
-      action = "+debug";
+      options = {
+        desc = "+tab";
+      };
     }
 
     {
@@ -64,15 +83,9 @@
       ];
       key = "<leader>c";
       action = "+code";
-    }
-
-    {
-      mode = [
-        "n"
-        "v"
-      ];
-      key = "<leader>t";
-      action = "+test";
+      options = {
+        desc = "+code";
+      };
     }
 
     # Tabs
@@ -301,31 +314,6 @@
       };
     }
 
-    # Copy stuff to system clipboard with <leader> + y or just y to have it just in vim
-    {
-      mode = [
-        "n"
-        "v"
-      ];
-      key = "<leader>y";
-      action = ''"+y'';
-      options = {
-        desc = "Copy to system clipboard";
-      };
-    }
-
-    {
-      mode = [
-        "n"
-        "v"
-      ];
-      key = "<leader>Y";
-      action = ''"+Y'';
-      options = {
-        desc = "Copy to system clipboard";
-      };
-    }
-
     # Delete to void register
     {
       mode = [
@@ -424,6 +412,22 @@
       action = "<CMD> Grapple select index=4<CR>";
       options = {
         desc = "Grapple Select 4";
+      };
+    }
+    {
+      mode = "n";
+      key = "<C-Tab>";
+      action = "<CMD>Telescope buffers sort_mru=true sort_lastused=true initial_mode=normal<CR>";
+      options = {
+        desc = "Next buffer";
+      };
+    }
+    {
+      mode = "n";
+      key = "<S-Tab>";
+      action = "<CMD>bprev<CR>";
+      options = {
+        desc = "Previous buffer";
       };
     }
   ];

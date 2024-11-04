@@ -6,10 +6,14 @@
 
 My Neovim config using nixvim.
 
+> [!NOTE]  
+> The colorscheme in these screenshots is [paradise](https://github.com/paradise-theme/paradise)
+
 <img src="assets/1.png" alt="nvim">
 
 <details>
     <summary>More!</summary>
+    <img src="assets/4.png" alt="nvim">
     <img src="assets/2.png" alt="nvim">
     <img src="assets/3.png" alt="nvim">
 </details>
@@ -22,15 +26,23 @@ If you add a new configuration file, remember to add it to the
 
 ### Current plugins
 
+> [!WARNING]
+> Some of them my be disabled, this is every plugins defined and configured in the repo.
+
+<details>
+    <summary>List of plugins</summary>
+
 - **[colorscheme/](../config/plug/colorscheme):** Theme configuration. Current one is [paradise](https://github.com/paradise-theme/paradise)
 - **[completion/](../config/plug/completion)**
-  - **[nvim-cmp](../config/plug/completion/cmp.nix):** Completion plugin for nvim + emoji support
+  - **[codecompanion](../config/plug/completion/codecompanion.nix):** Zed AI like
   - **[copilot-cmp](../config/plug/completion/copilot-cmp.nix):** Completion support for GitHub copilot
   - **[lspkind](../config/plug/completion/lspkind.nix):** vscode-like pictograms for neovim lsp completion items
+  - **[nvim-cmp](../config/plug/completion/cmp.nix):** Completion plugin for nvim + emoji support
   - **[schemastore.nvim](../config/plug/completion/schemastore.nix):** Schemastore integration
 - **[git/](../config/plug/git)**
   - **[gitlinker](../config/plug/git/gitlinker.nix):** Generate shareable file permalinks
-  - **[gitsigns](../config/plug/git/gitsigns.nix):** Git integration for buffers
+  - **[gitblame](../config/plug/git/gitblame.nix):** inline git blame
+  - **[gitsigns](../config/plug/git/gitsigns.nix):** Git integration for buffers (replaced by mini.diff + gitblame)
   - **[lazygit](../config/plug/git/lazygit.nix):** The **best** git TUI, as a neovim plugin
   - **[worktree](../config/plug/git/worktree.nix):** Make using git worktrees easier
 - **[lsp/](../config/plug/lsp)**
@@ -48,34 +60,39 @@ If you add a new configuration file, remember to add it to the
   - **[staline](../config/plug/statusline/staline.nix):** Some soviet guy that died a long time ago
 - **[treesitter/](../config/plug/treesitter)**
   - **[treesitter-context](../config/plug/treesitter/treesitter-context.nix):** Show code context
-  - **[treesitter-textobject](../config/plug/treesitter/treesitter-textobject.nix):** Allow cool text manupulation thanks to TS
+  - **[treesitter-textobject](../config/plug/treesitter/treesitter-textobject.nix):** Allow cool text manipulation thanks to TS
   - **[treesitter](../config/plug/treesitter/treesitter.nix):** Parser generator tool to build a syntax tree of the current buffer
 - **[ui/](../config/plug/ui)**
   - **[alpha](../config/plug/ui/alpha.nix):** Dashboard
   - **[btw](../config/plug/ui/btw.nix):** Writes a small message as startup screen
-  - **[bufferline](../config/plug/ui/bufferline.nix):** VSCode like line for buffers
+  - **[bufferline](../config/plug/ui/bufferline.nix):** VSCode like line for buffers -> replaced by mini.tabline
+  - **[dressing](../config/plug/ui/dressing.nix):** Better vim ui interfaces
   - **[noice](../config/plug/ui/noice.nix):** Better nvim UI
   - **[nvim-notify](../config/plug/ui/nvim-notify.nix):** Notification manager
   - **[precognition](../config/plug/ui/precognition.nix):** Show inline navigation hint
+  - **[smart-splits](../config/plug/ui/smart-splits.nix):** Better split managment
   - **[telescope](../config/plug/ui/telescope.nix):** Best plugin ever ?
 - **[utils/](../config/plug/utils)**
+  - **[auto-session](../config/plug/utils/auto-session.nix):** Session managment
   - **[comment](../config/plug/utils/comment.nix):** Quickly toggle comments
-  - **[comment-box](../config/plug/utils/comment-box.nix):** Comments utilitiesdefaul
-  - **[CopilotChat](../config/plug/utils/copilot.nix):** Chat with copilot in nvim
+  - **[comment-box](../config/plug/utils/comment-box.nix):** Comments utilities
   - **[flash](../config/plug/utils/flash.nix):** Navigate in file with a few keystrokes
   - **[grapple](../config/plug/utils/grapple.nix):** Quickly switch between buffers (Harpoon replacement)
   - **[hardtime](../config/plug/utils/hardtime.nix):** Learn vim motions, the hard way
   - **[harpoon](../config/plug/utils/harpoon.nix):** Quickly switch between buffers
   - **[illuminate](../config/plug/utils/illuminate.nix):** Highlight word under the cursor
   - **[markview](../config/plug/utils/markview.nix):** Yet another markdown previewer for neovim
-  - **[mini](../config/plug/utils/mini.nix):** Cool neovim utilities, currently using ai, notify and surround
+  - **[mini](../config/plug/utils/mini.nix):** Cool neovim utilities, currently using ai, notify, surround, diff, tabline, trailspace, icons, indentscope and pairs
   - **[nvim-autopairs](../config/plug/utils/nvim-autopairs.nix):** Autopairs in nvim
   - **[nvim-colorizer](../config/plug/utils/nvim-colorizer.nix):** Preview colors in neovim
   - **[obsidian](../config/plug/utils/obsidian.nix):** Obsidian integration for nvim
   - **[oil](../config/plug/utils/oil.nix):** Navigate in your working folder with a buffer
+  - **[spectre](../config/plug/utils/spectre.nix):** Search and replace
   - **[ufo](../config/plug/utils/ufo.nix):** Folding plugin
   - **[undotree](../config/plug/utils/undotree.nix):** Undo history visualizer
   - **[whichkey](../config/plug/utils/whichkey.nix):** Popup to display keybindings
+
+</details>
 
 ## Testing your new configuration
 
@@ -154,9 +171,9 @@ You can just straight up alias something like `nix run
 
 ### Bonus extend method
 
-If you want to extend this config is your own NixOS config, you can do so using `nixvimExtend`. See [here](https://nix-community.github.io/nixvim/modules/standalone.html) for more info.
+If you want to extend this configuration is your own NixOS config, you can do so using `nixvimExtend`. See [here](https://nix-community.github.io/nixvim/modules/standalone.html) for more info.
 
-Example for overwritting the theme
+Example for overwriting the theme
 
 ```nix
 {
@@ -178,3 +195,4 @@ in {
 ## Credits
 
 - [yavko](https://github.com/yavko) for the logo
+- [nixvim](https://github.com/nix-community/nixvim) and all their maintainers/contributors
