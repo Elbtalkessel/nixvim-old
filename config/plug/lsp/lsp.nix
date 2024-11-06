@@ -43,6 +43,18 @@
         yamlls = {
           enable = true;
         };
+        templ = {
+          enable = true;
+        };
+        htmx = {
+          enable = true;
+        };
+        sqls = {
+          enable = true;
+        };
+        tailwindcss = {
+          enable = true;
+        };
       };
       keymaps = {
         silent = true;
