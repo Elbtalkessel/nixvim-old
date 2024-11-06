@@ -17,7 +17,8 @@
         #   enable = true;
         # };
         nixd = {
-          enable = true;
+          # Error executing vim.schedule lua callback: ....10.2/share/nvim/runtime/lua/vim/lsp/semantic_tokens.lua:0: ....10.2/share/nvim/runtime/lua/vim/lsp/semantic_tokens.lua:0: index out of range
+          enable = false;
           extraOptions = {
             nixos = {
               expr = "(builtins.getFlake \"/etc/nixos\").nixosConfigurations.aurelionite.options";
