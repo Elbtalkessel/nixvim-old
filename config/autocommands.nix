@@ -14,11 +14,11 @@
     }
 
     # Close Telescope prompt in insert mode by clicking escape
-    {
-      event = [ "FileType" ];
-      pattern = "TelescopePrompt";
-      command = "inoremap <buffer><silent> <ESC> <ESC>:close!<CR>";
-    }
+    #{
+    #  event = [ "FileType" ];
+    #  pattern = "TelescopePrompt";
+    #  command = "inoremap <buffer><silent> <ESC> <ESC>:close!<CR>";
+    #}
 
     # Enable spellcheck for some filetypes
     {
@@ -28,7 +28,7 @@
         "latex"
         "markdown"
       ];
-      command = "setlocal spell spelllang=en,fr";
+      command = "setlocal spell spelllang=en";
     }
     # Hilight yank text
     {

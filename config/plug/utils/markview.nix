@@ -1,5 +1,5 @@
 {
   plugins.markview = {
-    enable = true;
+    enable = false;
   };
 }

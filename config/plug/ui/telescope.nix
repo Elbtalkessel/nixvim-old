@@ -67,28 +67,34 @@
       #     desc = "Find project files";
       #   };
       # };
-      "<leader>fr" = {
+      "<leader>fg" = {
         action = "live_grep";
         options = {
-          desc = "Find text";
+          desc = "Grep text";
         };
       };
-      "<leader>fe" = {
+      "<leader>fr" = {
         action = "resume";
         options = {
           desc = "Resume";
         };
       };
-      "<leader>fg" = {
+      "<leader>fo" = {
         action = "oldfiles";
         options = {
-          desc = "Recent";
+          desc = "Old files";
         };
       };
       "<leader>fb" = {
+        action = "file_browser";
+        options = {
+          desc = "File browser";
+        };
+      };
+      "<leader>ft" = {
         action = "buffers";
         options = {
-          desc = "Buffers";
+          desc = "File Tabs";
         };
       };
       "<C-p>" = {
@@ -151,12 +157,13 @@
           desc = "Search Highlight Groups";
         };
       };
-      "<leader>sk" = {
-        action = "keymaps";
-        options = {
-          desc = "Keymaps";
-        };
-      };
+      # Doesn't work
+      #"<leader>sk" = {
+      #  action = "keymaps";
+      #  options = {
+      #    desc = "Keymaps";
+      #  };
+      #};
       "<leader>sM" = {
         action = "man_pages";
         options = {
