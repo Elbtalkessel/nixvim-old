@@ -67,6 +67,7 @@
     ./plug/utils/undotree.nix
     ./plug/utils/whichkey.nix
     ./plug/utils/yaml-companion.nix
+    ./plug/utils/autoclose.nix
   ];
   options = {
     theme = lib.mkOption {
