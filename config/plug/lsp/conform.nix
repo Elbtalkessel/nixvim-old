@@ -1,10 +1,11 @@
 {
   plugins.conform-nvim = {
-    enable = false;
+    enable = true;
     settings = {
 
       format_on_save = {
-        lspFallback = true;
+        # lsp formatting is disabled, it breakes formatting when multiple files, namely templ or sql, are open.
+        lspFallback = false;
         timeoutMs = 500;
       };
       notify_on_error = true;
@@ -62,6 +63,13 @@
         ];
         terragrunt = [
           "hclfmt"
+        ];
+        go = [
+          "goimports"
+          "gofmt"
+        ];
+        templ = [
+          "templ"
         ];
       };
     };
