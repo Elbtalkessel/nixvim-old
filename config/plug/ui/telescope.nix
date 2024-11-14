@@ -1,10 +1,12 @@
-{ lib, config, ... }:
-{
+_: {
   plugins.telescope = {
     enable = true;
     extensions = {
       file-browser = {
         enable = true;
+        settings = {
+          respect_gitignore = false;
+        };
       };
       ui-select = {
         enable = true;
@@ -35,40 +37,11 @@
       };
     };
     keymaps = {
+      #  Files
       "<leader><space>" = {
-        action = "find_files";
+        action = "find_files hidden=true";
         options = {
           desc = "Find project files";
-        };
-      };
-      "<leader>:" = {
-        action = "command_history";
-        options = {
-          desc = "Command History";
-        };
-      };
-      "<leader>b" = {
-        action = "buffers";
-        options = {
-          desc = "+buffer";
-        };
-      };
-      # "<leader>ff" = {
-      #   action = "find_files";
-      #   options = {
-      #     desc = "Find project files";
-      #   };
-      # };
-      "<leader>fg" = {
-        action = "live_grep";
-        options = {
-          desc = "Grep text";
-        };
-      };
-      "<leader>fr" = {
-        action = "resume";
-        options = {
-          desc = "Resume";
         };
       };
       "<leader>fo" = {
@@ -77,24 +50,34 @@
           desc = "Old files";
         };
       };
-      "<leader>fb" = {
-        action = "file_browser";
+      "<leader>fE" = {
+        action = "file_browser hidden=true";
         options = {
-          desc = "File browser";
+          desc = "Root dir files";
         };
       };
-      "<leader>ft" = {
-        action = "buffers";
-        options = {
-          desc = "File Tabs";
-        };
+      "<leader>fe" = {
+        options.desc = "Current dir files";
+        action = "file_browser path=%:p:h select_buffer=true hidden=true";
       };
-      "<C-p>" = {
+      "<leader>ff" = {
+        action = "find_files path=%:p:h hidden=true";
+        options.desc = "Search file cwd";
+      };
+      "<leader>fg" = {
         action = "git_files";
         options = {
           desc = "Search git files";
         };
       };
+
+      # Buffer
+      "<leader>b" = {
+        action = "buffers";
+        options.desc = "+buffer";
+      };
+
+      # Git
       "<leader>gc" = {
         action = "git_commits";
         options = {
@@ -105,6 +88,23 @@
         action = "git_status";
         options = {
           desc = "Status";
+        };
+      };
+
+      # Search
+      "<leader>ss" = {
+        action = "live_grep";
+        options.desc = "Search string";
+      };
+      "<leader>sS" = {
+        action = "live_grep path=%:p:h";
+        options.desc = "Search string in cwd";
+      };
+      "<leader>sg" = {
+        mode = "n";
+        action = "diagnostics bufnr=0";
+        options = {
+          desc = "Document diagnostics";
         };
       };
       "<leader>sa" = {
@@ -149,13 +149,6 @@
           desc = "Search Highlight Groups";
         };
       };
-      # Doesn't work
-      #"<leader>sk" = {
-      #  action = "keymaps";
-      #  options = {
-      #    desc = "Keymaps";
-      #  };
-      #};
       "<leader>sM" = {
         action = "man_pages";
         options = {
@@ -182,34 +175,4 @@
       };
     };
   };
-  keymaps = lib.mkIf config.plugins.telescope.enable [
-    {
-      mode = "n";
-      key = "<leader>sd";
-      action = "<cmd>Telescope diagnostics bufnr=0<cr>";
-      options = {
-        desc = "Document diagnostics";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>ff";
-      action.__raw = ''
-        function()
-            require("telescope.builtin").find_files({ cwd = vim.fn.expand("%:p:h") })
-          end
-      '';
-      options.desc = "Search file cwd";
-    }
-    {
-      mode = "n";
-      key = "<leader>fR";
-      action.__raw = ''
-        function()
-           require("telescope.builtin").live_grep({ cwd = vim.fn.expand("%:p:h") })
-          end
-      '';
-      options.desc = "Grep cwd";
-    }
-  ];
 }
