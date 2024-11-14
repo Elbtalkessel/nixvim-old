@@ -6,6 +6,8 @@ _: {
         enable = true;
         settings = {
           respect_gitignore = false;
+          # folders first
+          grouped = true;
         };
       };
       ui-select = {
