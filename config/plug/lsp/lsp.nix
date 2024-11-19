@@ -1,7 +1,8 @@
 {
   plugins = {
     lsp-format = {
-      enable = true;
+      # Doesn't work with templ, esp css / js in templ
+      enable = false;
     };
     lsp = {
       enable = true;

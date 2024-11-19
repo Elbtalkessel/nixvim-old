@@ -2,7 +2,7 @@
 {
   plugins.none-ls = {
     enable = true;
-    enableLspFormat = false;
+    enableLspFormat = true;
     settings = {
       updateInInsert = false;
     };
