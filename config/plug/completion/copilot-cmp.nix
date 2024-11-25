@@ -1,9 +1,9 @@
 {
   plugins.copilot-cmp = {
-    enable = true;
+    enable = false;
   };
   plugins.copilot-lua = {
-    enable = true;
+    enable = false;
     suggestion = {
       enabled = false;
     };
@@ -11,11 +11,4 @@
       enabled = false;
     };
   };
-
-  extraConfigLua = ''
-    require("copilot").setup({
-      suggestion = { enabled = false },
-      panel = { enabled = false },
-    })
-  '';
 }
