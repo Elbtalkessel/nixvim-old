@@ -68,15 +68,15 @@ in
           };
           modified = {
             fg = colors.base03;
-            bg = colors.base00;
+            bg = colors.base01;
           };
           modified_visible = {
             fg = colors.base00;
-            bg = colors.base00;
+            bg = colors.base01;
           };
           modified_selected = {
             fg = colors.base0B;
-            bg = colors.base01;
+            bg = colors.base00;
           };
           tab_close = {
             fg = colors.base00;
