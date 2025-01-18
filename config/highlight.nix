@@ -152,7 +152,7 @@ in
         fg = base0D;
       };
       TSComment = {
-        fg = base02;
+        fg = base04;
         italic = true;
       };
       TSConditional = {

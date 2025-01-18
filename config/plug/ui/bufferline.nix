@@ -11,13 +11,15 @@ in
           separator_style = "thin"; # “slant”, “padded_slant”, “slope”, “padded_slope”, “thick”, “thin”
         };
         highlights = lib.mkIf config.colorschemes.base16.enable {
+          # Buffer line background
           fill = {
             fg = "none";
-            bg = "none";
+            bg = colors.base01;
           };
+          # Active tab background
           background = {
             fg = "none";
-            bg = "none";
+            bg = colors.base01;
           };
           buffer = {
             fg = "none";
@@ -25,7 +27,7 @@ in
           };
           buffer_selected = {
             fg = colors.base05;
-            bg = colors.base01;
+            bg = "none";
             italic = false;
           };
           buffer_visible = {
@@ -34,7 +36,7 @@ in
           };
           close_button = {
             fg = "none";
-            bg = "none";
+            bg = colors.base01;
           };
           close_button_visible = {
             fg = colors.base03;
@@ -42,11 +44,11 @@ in
           };
           close_button_selected = {
             fg = colors.base08;
-            bg = colors.base01;
+            bg = "none";
           };
           indicator_selected = {
             fg = colors.base0E;
-            bg = colors.base01;
+            bg = "none";
           };
           indicator_visible = {
             fg = colors.base0E;
@@ -54,7 +56,7 @@ in
           };
           separator = {
             fg = colors.base00;
-            bg = colors.base00;
+            bg = colors.base01;
           };
           separator_selected = {
             fg = colors.base00;
