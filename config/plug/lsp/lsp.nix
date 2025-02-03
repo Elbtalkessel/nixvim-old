@@ -56,6 +56,9 @@
         tailwindcss = {
           enable = true;
         };
+        nushell = {
+          enable = true;
+        };
       };
       keymaps = {
         silent = true;
