@@ -59,7 +59,7 @@
         nushell = {
           enable = true;
         };
-        elmls = {
+        elixirls = {
           enable = true;
         };
       };
