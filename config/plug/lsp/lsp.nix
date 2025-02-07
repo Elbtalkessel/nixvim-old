@@ -59,6 +59,9 @@
         nushell = {
           enable = true;
         };
+        elmls = {
+          enable = true;
+        };
       };
       keymaps = {
         silent = true;
