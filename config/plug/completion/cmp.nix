@@ -16,6 +16,7 @@ let
 in
 {
   plugins = {
+    # completion plugin
     cmp = {
       enable = true;
       autoEnableSources = true;
@@ -44,8 +45,11 @@ in
         snippet.expand = # Lua
           "function(args) require('luasnip').lsp_expand(args.body) end";
 
+        # Completion sources,
+        # full list: https://github.com/hrsh7th/nvim-cmp/wiki/List-of-sources
         sources = [
           {
+            # neovim's built-in language.
             name = "nvim_lsp";
             priority = 1000;
             option = {
@@ -53,6 +57,7 @@ in
             };
           }
           {
+            # shows function signatures.
             name = "nvim_lsp_signature_help";
             priority = 1000;
             option = {
@@ -60,6 +65,7 @@ in
             };
           }
           {
+            # Variables, classes, interfaces...
             name = "nvim_lsp_document_symbol";
             priority = 1000;
             option = {
@@ -67,6 +73,7 @@ in
             };
           }
           {
+            # Source code nodes.
             name = "treesitter";
             priority = 850;
             option = {
@@ -74,10 +81,12 @@ in
             };
           }
           {
+            # Lua snippets.
             name = "luasnip";
             priority = 750;
           }
           {
+            # From buffer.
             name = "buffer";
             priority = 500;
             option = {
@@ -85,44 +94,47 @@ in
             };
           }
           {
+            # Ripgrep search results (from other files)
             name = "rg";
             priority = 300;
           }
           {
+            # Filesystem paths.
             name = "path";
             priority = 300;
           }
           {
+            # Vim's commandline completion.
             name = "cmdline";
             priority = 300;
           }
           {
+            # Spelling suggestions.
             name = "spell";
             priority = 300;
           }
           {
+            # Git source.
             name = "git";
             priority = 250;
           }
           {
-            name = "zsh";
-            priority = 250;
-          }
-          {
+            # Math expression evaluation results.
             name = "calc";
             priority = 150;
-          }
-          {
-            name = "emoji";
-            priority = 100;
           }
         ];
       };
     };
 
+    # Snippets collection for different languages.
+    # https://github.com/rafamadriz/friendly-snippets
     friendly-snippets.enable = true;
+    # Snippet engine.
+    # https://github.com/L3MON4D3/LuaSnip
     luasnip.enable = true;
 
+    # Adds icons to completition items.
     lspkind = {
       enable = true;
 

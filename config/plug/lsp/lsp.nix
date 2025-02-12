@@ -14,9 +14,6 @@
         lua_ls = {
           enable = true;
         };
-        # nil-ls = {
-        #   enable = true;
-        # };
         nixd = {
           # Error executing vim.schedule lua callback: ....10.2/share/nvim/runtime/lua/vim/lsp/semantic_tokens.lua:0: ....10.2/share/nvim/runtime/lua/vim/lsp/semantic_tokens.lua:0: index out of range
           enable = false;
@@ -36,9 +33,6 @@
           enable = true;
         };
         gopls = {
-          enable = true;
-        };
-        terraformls = {
           enable = true;
         };
         yamlls = {
@@ -86,34 +80,11 @@
             action = "type_definition";
             desc = "Type Definition";
           };
-          # Use LSP saga keybinding instead
-          # K = {
-          #   action = "hover";
-          #   desc = "Hover";
-          # };
-          # "<leader>cw" = {
-          #   action = "workspace_symbol";
-          #   desc = "Workspace Symbol";
-          # };
           "<leader>cr" = {
             action = "rename";
             desc = "Rename";
           };
         };
-        # diagnostic = {
-        #   "<leader>cd" = {
-        #     action = "open_float";
-        #     desc = "Line Diagnostics";
-        #   };
-        #   "[d" = {
-        #     action = "goto_next";
-        #     desc = "Next Diagnostic";
-        #   };
-        #   "]d" = {
-        #     action = "goto_prev";
-        #     desc = "Previous Diagnostic";
-        #   };
-        # };
       };
     };
   };
